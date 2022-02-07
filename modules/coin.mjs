@@ -14,7 +14,9 @@
  * 
  */
 
-function coinFlip() {
+export function coinFlip() {
+
+  return Math.random() > 0.5 ? ('tails') : ("heads")
 
 }
 
@@ -37,8 +39,13 @@ function coinFlip() {
     ]
  */
 
-function coinFlips(flips) {
+export function coinFlips(flips) {
+  const output = []
+  for(let i = 0; i < flips; i++){
+    output[i] = coinFlip();
+  }
 
+  return output
 }
 
 /** Count multiple flips
@@ -47,14 +54,31 @@ function coinFlips(flips) {
  * (e.g. the results of your `coinFlips()` function) and counts each, returning 
  * an object containing the number of each.
  * 
- * example: conutFlips(['heads', 'heads','heads', 'tails','heads', 'tails','tails', 'heads','tails', 'heads'])
+ * example: countFlips(['heads', 'heads','heads', 'tails','heads', 'tails','tails', 'heads','tails', 'heads'])
  * { tails: 5, heads: 5 }
  * 
  * @param {string[]} array 
  * @returns {{ heads: number, tails: number }}
  */
 
-function countFlips(array) {
+export function countFlips(array) {
+  const head = 'heads'
+
+  var output = {
+    tails: 0,
+    heads: 0
+  }
+
+  for (const index in array){
+    if (array[index] == head) {
+      output.heads = output.heads + 1;
+    }
+    else{
+      output.tails = output.tails + 1;
+    }
+  }
+
+  return output
 
 }
 
@@ -69,10 +93,22 @@ function countFlips(array) {
  * returns: { call: 'tails', flip: 'heads', result: 'lose' }
  */
 
-function flipACoin(call) {
+export function flipACoin(call) {
 
+  var output = {
+    call : call,
+    flip : coinFlip(),
+  }
+
+  if (output.flip == output.call){
+    output.result = 'win'
+  }
+  else {
+    output.result = 'lose'
+  }
+
+  return output
 }
-
 
 /** Export 
  * 
