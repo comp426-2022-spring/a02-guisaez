@@ -9,14 +9,11 @@ const heads = "heads"
 const tails = "tails"
 
 
-if (args.calls != heads && args.call != tails){
-    try{
-        throw new Error("No answer")
-    } 
-    catch(e) {
-        console.log("Error: No answer")
-        console.log("Usage: node guess-flip --call=[heads|tails]")
-    }
+if (args.call == null) {
+    console.log("Error: no input.\nUsage: node guess-flip.js --call=[heads|tails]");
+}
+if( args.call != heads && args.call != tails){
+    console.log("Error: incorrect input.\nUsage: node guess-flip.js --call=[heads|tails]")
 }
 else{
     console.log(flipACoin(args.call))
