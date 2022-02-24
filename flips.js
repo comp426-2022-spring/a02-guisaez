@@ -7,7 +7,7 @@ var args = require('minimist')(process.argv.slice(2));
 args['number']
 
 if(args.number == null) {
-    console.log(coinFlips(1))
+    console.log(countFlips(coinFlips(1)))
 }
 else{
     console.log(countFlips(coinFlips(args.number)))
