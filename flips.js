@@ -9,7 +9,7 @@ args['number']
 if(args.number == null) {
     var output = coinFlips(1)
     console.log(output)
-    console.log(output + " : 1 ")
+    console.log("{ " + output + " : 1 }")
 }
 else{
     console.log(countFlips(coinFlips(args.number)))
